@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "start backend",
+            "skipFiles": ["<node_internals>/**"],
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/yarn",
+            "runtimeArgs": ["start:backend"],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "start frontend",
+            "preLaunchTask": "start-frontend", // This refers to a task defined in tasks.json
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/packages/frontend",
+            "sourceMaps": true,
+            "smartStep": true,
+            "internalConsoleOptions": "openOnSessionStart",
+            "sourceMapPathOverrides": {
+                "webpack:///.//*": "${webRoot}/*"
+            }
+        }
+    ]
+}

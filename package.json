@@ -1,0 +1,27 @@
+{
+  "name": "secure-arc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "secure-arc is tool for maintaining arcgate internal docs",
+  "license": "ISC",
+  "author": "arcgate team",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "chmod +x ./scripts/clean.sh && ./scripts/clean.sh",
+    "lint": "eslint 'packages/**/*.{js,jsx}' --fix",
+    "start:backend": "yarn workspace backend start",
+    "start:frontend": "yarn workspace frontend dev",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.0.2",
+    "yarn": "^1.22.19"
+  }
+}
