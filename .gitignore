@@ -1,6 +1,10 @@
 node_modules
-node_modules
 .env.development
 yarn.lock
 packages/frontend/package-lock.json
 packages/frontend/.next/
+packages/backend/node_modules
+packages/frontend/node_modules
+packages/arc-encrypt/.env
+packages/azure-storage/.env
+config/development.json
