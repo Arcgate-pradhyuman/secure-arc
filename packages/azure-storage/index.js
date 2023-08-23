@@ -1,6 +1,5 @@
 const { BlobServiceClient } = require("@azure/storage-blob");
 const { v1: uuidv1 } = require("uuid");
-require("dotenv").config();
 
 async function main() {
     try {
