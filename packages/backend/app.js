@@ -4,6 +4,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const bodyParser = require('body-parser');
+const createApolloServer = require("./graphql/service/graphql.service");
+const { expressMiddleware } = require("@apollo/server/express4");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -27,6 +29,27 @@ app.use(bodyParser.json());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+
+var apolloServer; // Declare the variable in the outer scope
+
+(async () => {
+  try {
+    apolloServer = createApolloServer(); // Assign a value inside the async function
+    await apolloServer.start();
+  } catch (error) {
+    console.error("Error setting up Apollo Server:", error);
+  }
+})();
+
+app.use("/graphql", (req, res, next) => {
+  if (apolloServer) {
+    expressMiddleware(apolloServer)(req, res, next);
+  } else {
+    next(); // Call next middleware if apolloServer is not ready yet
+  }
+});
+
+
 // Routes
 app.use('/auth', authRoutes);
 // catch 404 and forward to error handler
