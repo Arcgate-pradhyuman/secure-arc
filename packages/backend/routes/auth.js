@@ -1,6 +1,12 @@
-const router = require('express').Router();
-const {login} = require('../controllers/auth.controller')
-router.post('/login', login);
+const router = require("express").Router();
+const { login, token } = require("../controllers/auth.controller");
+
+// login
+router.post("/login", login);
+// token
+router.post("/token", token);
+
+
 module.exports = router;
 // const {
 //     jwt: {
@@ -9,7 +15,6 @@ module.exports = router;
 //     },
 
 // } = require('arc-encrypt');
-
 
 // const router = express.Router();
 

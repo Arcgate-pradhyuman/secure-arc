@@ -14,9 +14,29 @@ const login = async (req, res, next) => {
     const refreshToken = generateToken({ userId: user._id }, 604800); // 1 week for refresh token
     return res.status(200).json({ accessToken, refreshToken });
   } catch (error) {
-    console.log(error);
     next(error);
   }
 };
 
-module.exports = { login };
+const token = (req, res, next) => {
+  try {
+    const { refreshToken } = req.body;
+
+    if (!refreshToken) {
+      return res.status(403).json({ message: "Refresh token is required" });
+    }
+
+    const decodedToken = verifyToken(refreshToken);
+
+    if (!decodedToken) {
+      return res.status(403).json({ message: "Invalid refresh token" });
+    }
+
+    const newAccessToken = generateToken({ userId: decodedToken.userId });
+    return res.status(200).json({ accessToken: newAccessToken });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { login, token };
