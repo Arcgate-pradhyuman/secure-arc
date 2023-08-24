@@ -9,3 +9,4 @@ packages/arc-encrypt/.env
 packages/azure-storage/.env
 config/development.json
 packages/backend/yarn-error.log
+.env
