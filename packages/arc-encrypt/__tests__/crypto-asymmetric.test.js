@@ -5,9 +5,9 @@ const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
 });
 
 const data = "SuperSecretMessage";
-const encryptedAsymmetricData = asymmetricEncrypt(data, publicKey);
+const encryptedAsymmetricData = encrypt(data, publicKey);
 console.log(`Asymmetric Encrypted Data: ${encryptedAsymmetricData}`);
-console.log(`Asymmetric Decrypted Data: ${asymmetricDecrypt(encryptedAsymmetricData, privateKey)}`);
+console.log(`Asymmetric Decrypted Data: ${decrypt(encryptedAsymmetricData, privateKey)}`);
 console.log(`private key Data:`, privateKey);
 console.log(`public key Data: `, publicKey);
 
