@@ -8,7 +8,7 @@ const createUser = async (req, res, next) => {
       .collection("users")
       .findOne({ username: username });
     if (userExists) {
-      return res.status(200).json({ message: "username already exists" });
+      return res.status(409).json({ message: "username already exists" });
     }
     await db.collection("users").insertOne({
       username: username,
@@ -24,8 +24,8 @@ const createUser = async (req, res, next) => {
 
 const getUser = async (req, res, next) => {
   try {
-    const { userId } = req.params;
-    const validUserId = new mongoose.Types.ObjectId(userId);
+    const { _id } = req.user;
+    const validUserId = new mongoose.Types.ObjectId(_id);
     const user = await db.collection("users").findOne({ _id: validUserId });
     if (!user) {
       return res.status(404).json({ message: "user not found" });

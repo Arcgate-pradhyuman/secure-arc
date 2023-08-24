@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const {createUser,getUser} = require('../controllers/user.controller');
+const {validateJWT} = require('../middlewares/auth.middleware')
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -8,8 +9,8 @@ router.get("/", function (req, res, next) {
 
 
 // create user
-router.post('/create', createUser);
+router.post('/create',createUser);
 //get user
-router.get('/get/:userId', getUser);
+router.get('/get', validateJWT, getUser);
 
 module.exports = router;
