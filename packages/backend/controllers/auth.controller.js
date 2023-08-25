@@ -1,14 +1,19 @@
 const db = require("../database/db");
 const {
   jwt: { generateToken, verifyToken },
+  hash: { hashPassword, verifyPassword },
 } = require("arc-encrypt");
 
 const login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const user = await db.collection("users").findOne({ username: username });
-    if (!user || user.password !== password) {
-      return res.status(401).json({ message: "Invalid username or password" });
+    if (!user) {
+      return res.status(401).json({ message: "Invalid username" });
+    }
+    const chkPassword = await verifyPassword(password, user.password);
+    if (chkPassword === false) {
+      return res.status(401).json({ message: "Invalid password" });
     }
     const accessToken = generateToken({ userId: user._id });
     const refreshToken = generateToken({ userId: user._id }, 604800); // 1 week for refresh token

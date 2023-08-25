@@ -1,9 +1,13 @@
 const { default: mongoose } = require("mongoose");
 const db = require("../database/db");
+const {
+  hash: { hashPassword, verifyPassword },
+} = require("arc-encrypt");
 
 const createUser = async (req, res, next) => {
   try {
     const { username, password } = req.body;
+    const hashedPassword = await hashPassword(password)
     const userExists = await db
       .collection("users")
       .findOne({ username: username });
@@ -12,7 +16,7 @@ const createUser = async (req, res, next) => {
     }
     await db.collection("users").insertOne({
       username: username,
-      password: password,
+      password: hashedPassword,
       created_at: new Date(),
       updated_at: new Date(),
     });
