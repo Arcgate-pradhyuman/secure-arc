@@ -1,8 +1,22 @@
+version: '6.0' # Using version 3.8, but you can adjust this based on your Docker version
+
 services:
   mongodb:
-    image: mongo:latest
+    build: .  # Build the Docker image using the Dockerfile in the current directory
     container_name: mongodb_container
     ports:
       - "27017:27017"
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: yourpassword  # Please choose a secure password
     volumes:
-      - ./dump:/data/db  # <--- Change here to point MongoDB to use this as its data directory
+      - mongodb_data:/data/db
+      - ./dump:/dump
+    networks:
+      - mynetwork
+
+volumes:
+  mongodb_data:
+
+networks:
+  mynetwork:
