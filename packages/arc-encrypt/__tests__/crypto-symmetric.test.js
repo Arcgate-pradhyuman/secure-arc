@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const { symmetricEncrypt, symmetricDecrypt } = require("../crypto-symmetric")
+const { encrypt, decrypt } = require("../crypto-symmetric")
 
 const data = "SuperSecretMessage";
 
@@ -11,9 +11,9 @@ console.log(secretKey);
 // const secretKey = crypto.randomBytes(32); // For AES-256
 const iv = crypto.randomBytes(16); // Initialization vector
 console.log(secretKey)
-const encryptedData = symmetricEncrypt(data, secretKey, iv);
+const encryptedData = encrypt(data, secretKey, iv);
 console.log(`Encrypted Data: ${encryptedData}`);
-console.log(`Decrypted Data: ${symmetricDecrypt(encryptedData, secretKey, iv)}`);
+console.log(`Decrypted Data: ${decrypt(encryptedData, secretKey, iv)}`);
 
 
 

@@ -11,3 +11,6 @@
 11. eslint is our primary linter
 12. all env file variable always in upper snake case
 13. use this npx sort-package-json cammand for correct ordering your package.json
+14. we have three types of environment - DEV , PROD , STAG
+15. we have three main branches - master , release , develop
+16. we are using jest a testing library
