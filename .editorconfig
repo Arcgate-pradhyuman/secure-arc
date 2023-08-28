@@ -1,0 +1,40 @@
+# .editorconfig
+
+# Top-most EditorConfig file
+root = true
+
+# Default settings
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Override for markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+# JSON and YAML usually used in configuration files
+[*.json, *.yml, *.yaml]
+indent_size = 2
+
+# Express.js (assuming it's in JavaScript/TypeScript)
+packages/*/src/**/*.js
+packages/*/src/**/*.ts
+indent_style = space
+indent_size = 2
+
+# Next.js uses JSX/TSX due to React
+packages/*/src/**/*.jsx
+packages/*/src/**/*.tsx
+indent_style = space
+indent_size = 2
+
+# CSS and SCSS for Next.js
+packages/*/src/**/*.css
+packages/*/src/**/*.scss
+indent_style = space
+indent_size = 2
+
