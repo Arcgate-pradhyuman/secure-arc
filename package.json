@@ -20,7 +20,8 @@
     "stop:mongodb": "./scripts/mongo/stop.sh",
     "clean:mongodb": "./scripts/mongo/clean.sh",
     "restore:mongodb": "./scripts/mongo/restore.sh",
-    "dump:mongodb": "./scripts/mongo/dump.sh"
+    "dump:mongodb": "./scripts/mongo/dump.sh",
+    "cypress:open": "cypress open"
   },
   "devDependencies": {
     "eslint": "^8.47.0",
