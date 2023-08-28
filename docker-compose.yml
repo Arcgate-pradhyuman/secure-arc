@@ -1,4 +1,4 @@
-version: '6.0' # Using version 3.8, but you can adjust this based on your Docker version
+version: '6.0' # Using version 6.0
 
 services:
   mongodb:
