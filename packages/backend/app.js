@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 const createApolloServer = require("./graphql/service/graphql.service");
 const { expressMiddleware } = require("@apollo/server/express4");
 
+
+
+
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var authRoutes = require('./routes/auth');
@@ -14,6 +17,7 @@ var authRoutes = require('./routes/auth');
 
 
 var app = express();
+
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -27,9 +31,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 
 
+// Routes
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use('/auth', authRoutes);
 
+
+// apollo server connection
 var apolloServer; // Declare the variable in the outer scope
 
 (async () => {
@@ -50,8 +58,6 @@ app.use("/graphql", (req, res, next) => {
 });
 
 
-// Routes
-app.use('/auth', authRoutes);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

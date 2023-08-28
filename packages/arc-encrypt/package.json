@@ -1,6 +1,6 @@
 {
   "name": "arc-encrypt",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "private": true,
   "main": "index.js",
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "jsonwebtoken": "^9.0.1"
   }
 }
