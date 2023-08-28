@@ -13,4 +13,5 @@
 13. use this npx sort-package-json cammand for correct ordering your package.json
 14. we have three types of environment - DEV , PROD , STAG
 15. we have three main branches - master , release , develop
-16. we are using jest a testing library
+16. we are using jest as a testing library
+17. we are using mongodb as database inside docker

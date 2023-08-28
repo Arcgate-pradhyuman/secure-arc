@@ -1,0 +1,22 @@
+version: '6.0' # Using version 6.0
+
+services:
+  mongodb:
+    build: .  # Build the Docker image using the Dockerfile in the current directory
+    container_name: mongodb_container
+    ports:
+      - "27017:27017"
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: yourpassword  # Please choose a secure password
+    volumes:
+      - mongodb_data:/data/db
+      - ./dump:/dump
+    networks:
+      - mynetwork
+
+volumes:
+  mongodb_data:
+
+networks:
+  mynetwork:
