@@ -2,7 +2,7 @@ version: '6.0' # Using version 6.0
 
 services:
   mongodb:
-    build: .  # Build the Docker image using the Dockerfile in the current directory
+    image: mongo:latest  # Use the official MongoDB image from Docker Hub
     container_name: mongodb_container
     ports:
       - "27017:27017"
