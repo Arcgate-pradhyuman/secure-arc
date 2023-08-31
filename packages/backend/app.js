@@ -13,9 +13,10 @@ const swaggerUi = require('swagger-ui-express');
 const specs = require('./swagger.config');
 
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var authRoutes = require('./routes/auth');
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users.router");
+const authRouter = require('./routes/auth.router');
+const fileRouter = require('./routes/file.router')
 
 
 
@@ -41,7 +42,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // Routes
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use('/auth', authRoutes);
+app.use('/auth', authRouter);
+app.use('/file',fileRouter);
 
 
 // apollo server connection
