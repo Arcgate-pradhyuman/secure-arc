@@ -7,7 +7,10 @@ const bodyParser = require('body-parser');
 const createApolloServer = require("./graphql/service/graphql.service");
 const { expressMiddleware } = require("@apollo/server/express4");
 
+const swaggerUi = require('swagger-ui-express');
 
+// Import the Swagger specifications and the routes
+const specs = require('./swagger.config');
 
 
 var indexRouter = require("./routes/index");
@@ -29,6 +32,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
+
+
+// Use the Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
 // Routes
