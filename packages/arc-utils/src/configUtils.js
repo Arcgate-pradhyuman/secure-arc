@@ -15,7 +15,7 @@ function getEnv(key, defaultValue) {
 * @returns {boolean}
 */
 function isProduction() {
-  return process.env.NODE_ENV === 'production';
+  return process.env.NODE_ENV === 'PROD';
 }
 
 /**
@@ -23,7 +23,7 @@ function isProduction() {
 * @returns {boolean}
 */
 function isDevelopment() {
-  return process.env.NODE_ENV === 'development';
+  return process.env.NODE_ENV === 'DEV';
 }
 
 /**
