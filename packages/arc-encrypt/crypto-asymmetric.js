@@ -8,8 +8,8 @@ const crypto = require('crypto');
  * @returns {string} The encrypted data encoded as a base64 string.
  */
 function encrypt(data, publicKey) {
-    const encrypted = crypto.publicEncrypt(publicKey, Buffer.from(data));
-    return encrypted.toString('base64');
+  const encrypted = crypto.publicEncrypt(publicKey, Buffer.from(data));
+  return encrypted.toString('base64');
 }
 
 /**
@@ -20,11 +20,14 @@ function encrypt(data, publicKey) {
  * @returns {string} The decrypted data as a UTF-8 string.
  */
 function decrypt(encryptedData, privateKey) {
-    const decrypted = crypto.privateDecrypt(privateKey, Buffer.from(encryptedData, 'base64'));
-    return decrypted.toString('utf8');
+  const decrypted = crypto.privateDecrypt(
+    privateKey,
+    Buffer.from(encryptedData, 'base64')
+  );
+  return decrypted.toString('utf8');
 }
 
 module.exports = {
-    encrypt,
-    decrypt
+  encrypt,
+  decrypt,
 };

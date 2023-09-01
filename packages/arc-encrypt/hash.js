@@ -8,13 +8,13 @@ const saltRounds = 10;
  * @return {Promise<string>} - The hashed password.
  */
 const hashPassword = async (plainPassword) => {
-    try {
-        const salt = await bcrypt.genSalt(saltRounds);
-        const hashedPassword = await bcrypt.hash(plainPassword, salt);
-        return hashedPassword;
-    } catch (error) {
-        throw new Error('Error hashing password: ' + error.message);
-    }
+  try {
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hashedPassword = await bcrypt.hash(plainPassword, salt);
+    return hashedPassword;
+  } catch (error) {
+    throw new Error('Error hashing password: ' + error.message);
+  }
 };
 
 /**
@@ -25,14 +25,14 @@ const hashPassword = async (plainPassword) => {
  * @return {Promise<boolean>} - True if the passwords match, false otherwise.
  */
 const verifyPassword = async (plainPassword, hashedPassword) => {
-    try {
-        return await bcrypt.compare(plainPassword, hashedPassword);
-    } catch (error) {
-        throw new Error('Error verifying password: ' + error.message);
-    }
+  try {
+    return await bcrypt.compare(plainPassword, hashedPassword);
+  } catch (error) {
+    throw new Error('Error verifying password: ' + error.message);
+  }
 };
 
 module.exports = {
-    hashPassword,
-    verifyPassword
+  hashPassword,
+  verifyPassword,
 };
