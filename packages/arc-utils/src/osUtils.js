@@ -6,10 +6,10 @@ const os = require('os');
  * @returns {Object} An object with total and free memory in MB.
  */
 function getMemoryInfoInMB() {
-    return {
-        total: Math.round(os.totalmem() / (1024 * 1024)),
-        free: Math.round(os.freemem() / (1024 * 1024))
-    };
+  return {
+    total: Math.round(os.totalmem() / (1024 * 1024)),
+    free: Math.round(os.freemem() / (1024 * 1024)),
+  };
 }
 
 /**
@@ -17,11 +17,11 @@ function getMemoryInfoInMB() {
  * @returns {Object} An object with platform, CPU architecture, and OS release.
  */
 function getSystemInfo() {
-    return {
-        platform: os.platform(),
-        arch: os.arch(),
-        release: os.release()
-    };
+  return {
+    platform: os.platform(),
+    arch: os.arch(),
+    release: os.release(),
+  };
 }
 
 /**
@@ -29,7 +29,7 @@ function getSystemInfo() {
  * @returns {string}
  */
 function getUserHomeDir() {
-    return os.homedir();
+  return os.homedir();
 }
 
 /**
@@ -37,7 +37,7 @@ function getUserHomeDir() {
  * @returns {number}
  */
 function getUptimeInMinutes() {
-    return Math.round(os.uptime() / 60);
+  return Math.round(os.uptime() / 60);
 }
 
 /**
@@ -45,18 +45,16 @@ function getUptimeInMinutes() {
  * @returns {string}
  */
 function getHostName() {
-    return os.hostname();
+  return os.hostname();
 }
 
 module.exports = {
-    getMemoryInfoInMB,
-    getSystemInfo,
-    getUserHomeDir,
-    getUptimeInMinutes,
-    getHostName
+  getMemoryInfoInMB,
+  getSystemInfo,
+  getUserHomeDir,
+  getUptimeInMinutes,
+  getHostName,
 };
-
-
 
 // const osUtils = require('./osUtils');
 
