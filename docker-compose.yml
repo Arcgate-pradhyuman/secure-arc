@@ -15,8 +15,19 @@ services:
     networks:
       - mynetwork
 
+  redis:
+    image: redis:latest  # Use the official Redis image from Docker Hub
+    container_name: redis_container
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - mynetwork
+
 volumes:
   mongodb_data:
+  redis_data:
 
 networks:
   mynetwork:
