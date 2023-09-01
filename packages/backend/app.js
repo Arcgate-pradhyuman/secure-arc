@@ -7,12 +7,16 @@ const bodyParser = require('body-parser');
 const createApolloServer = require("./graphql/service/graphql.service");
 const { expressMiddleware } = require("@apollo/server/express4");
 
+const swaggerUi = require('swagger-ui-express');
+
+// Import the Swagger specifications and the routes
+const specs = require('./swagger.config');
 
 
-
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var authRoutes = require('./routes/auth');
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users.router");
+const authRouter = require('./routes/auth.router');
+const fileRouter = require('./routes/file.router')
 
 
 
@@ -31,10 +35,15 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 
 
+// Use the Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+
 // Routes
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use('/auth', authRoutes);
+app.use('/auth', authRouter);
+app.use('/file',fileRouter);
 
 
 // apollo server connection
