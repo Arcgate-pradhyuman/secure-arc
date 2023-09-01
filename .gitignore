@@ -10,3 +10,4 @@ packages/azure-storage/.env
 config/development.json
 packages/backend/yarn-error.log
 .env
+yarn-error.log
