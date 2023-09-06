@@ -1,14 +1,11 @@
-version: '6.0' # Using version 6.0
+version: '6.0'
 
 services:
   mongodb:
-    image: mongo:latest  # Use the official MongoDB image from Docker Hub
+    image: mongo:latest
     container_name: mongodb_container
     ports:
       - "27017:27017"
-    # environment:
-    #   MONGO_INITDB_ROOT_USERNAME: root
-    #   MONGO_INITDB_ROOT_PASSWORD: yourpassword  # Please choose a secure password
     volumes:
       - mongodb_data:/data/db
       - ./dump:/dump
@@ -16,7 +13,7 @@ services:
       - mynetwork
 
   redis:
-    image: redis:latest  # Use the official Redis image from Docker Hub
+    image: redis:latest
     container_name: redis_container
     ports:
       - "6379:6379"
@@ -24,6 +21,29 @@ services:
       - redis_data:/data
     networks:
       - mynetwork
+
+  backend:
+    # environment:
+    #   - MONGO_CONNECTION_URL=mongodb://mongodb:27017/secure
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./packages/backend:/secure-arc/packages/backend
+
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.frontend
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./packages/frontend:/secure-arc/packages/frontend
 
 volumes:
   mongodb_data:
