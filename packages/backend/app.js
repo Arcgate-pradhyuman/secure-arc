@@ -56,8 +56,6 @@ app.use('/graphql', (req, res, next) => {
     expressMiddleware(apolloServer)(req, res, next);
   } else {
     next(); // Call next middleware if apolloServer is not ready yet
-
-    
   }
 });
 
@@ -74,7 +72,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 module.exports = app;
