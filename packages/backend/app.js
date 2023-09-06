@@ -56,6 +56,8 @@ app.use('/graphql', (req, res, next) => {
     expressMiddleware(apolloServer)(req, res, next);
   } else {
     next(); // Call next middleware if apolloServer is not ready yet
+
+    
   }
 });
 
