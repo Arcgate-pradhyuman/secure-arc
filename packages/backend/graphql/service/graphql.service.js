@@ -1,13 +1,12 @@
-const { ApolloServer } = require("@apollo/server");
-const typeDefs =  require('../schema/hello.schema');
-const resolvers =  require('../resolver/hello.resolver')
+const { ApolloServer } = require('@apollo/server');
+const typeDefs = require('../schema/hello.schema');
+const resolvers = require('../resolver/hello.resolver');
 
-  const createApolloServer = () => {
-    return new ApolloServer({
-      typeDefs,
-      resolvers,
-    });
-  };
+const createApolloServer = () => {
+  return new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
+};
 
-
-  module.exports = createApolloServer;
+module.exports = createApolloServer;
