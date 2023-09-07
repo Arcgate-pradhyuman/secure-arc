@@ -7,8 +7,8 @@ WORKDIR /secure-arc
 # Copy the entire monorepo to the container
 COPY . .
 
-# Installing dependencies using Yarn
-RUN yarn install --frozen-lockfile
+# Installing only production dependencies using Yarn
+RUN yarn install --frozen-lockfile --production
 
 # Building the frontend
 RUN yarn --cwd /secure-arc/packages/frontend build

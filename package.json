@@ -9,6 +9,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "nohoist": [
+    "packages/*"
+  ],
   "scripts": {
     "clean": "./scripts/clean.sh",
     "lint": "eslint 'packages/**/*.{js,jsx}'",
