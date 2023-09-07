@@ -47,6 +47,9 @@ services:
       - "3000:3000"
     volumes:
       - ./packages/frontend:/secure-arc/packages/frontend
+    networks:
+      - mynetwork
+
 
 volumes:
   mongodb_data:

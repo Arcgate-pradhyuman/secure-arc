@@ -18,6 +18,8 @@
     "lint:fix": "eslint 'packages/**/*.{js,jsx}' --fix",
     "start:backend": "yarn workspace backend start",
     "start:frontend": "yarn workspace frontend dev",
+    "build:frontend": "yarn workspace frontend build",
+    "start:production:frontend": "yarn workspace frontend start",
     "test": "jest",
     "default": "chmod +x ./scripts/default.sh && ./scripts/default.sh",
     "start:mongodb": "./scripts/mongo/start.sh",
