@@ -2,18 +2,21 @@
 FROM node:16 as frontend-builder
 
 # Setting the working directory inside the container
-WORKDIR /secure-arc
+#WORKDIR /secure-arc
 
 # Copy the entire monorepo to the container
 COPY . .
 
-# Installing dependencies using Yarn
-RUN yarn install --frozen-lockfile
+# Installing only production dependencies using Yarn
+RUN yarn install --frozen-lockfile 
 
 # Building the frontend
-RUN yarn --cwd /secure-arc/packages/frontend build
+# RUN yarn --cwd packages/frontend build
 
-# The CMD instruction should only appear once. It provides defaults for an executing container.
+# If you want to run this command at the root level of the Dockerfile:
+RUN yarn build:frontend
+
+# The CMD instruction provides defaults for an executing container.
 # Since you have a "build" and a "start" command, you probably want to run the start command when 
-# the container is run. If so, you should only include the "start" command in the CMD instruction.
-CMD [ "yarn", "--cwd", "packages/frontend", "start" ]
+# the container is run. So, you should only include the "start" command in the CMD instruction.
+CMD [ "yarn", "start:production:frontend" ]

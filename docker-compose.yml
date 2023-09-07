@@ -23,27 +23,33 @@ services:
       - mynetwork
 
   backend:
-    # environment:
-    #   - MONGO_CONNECTION_URL=mongodb://mongodb:27017/secure
+    env_file: 
+      - .env
     build:
       context: .
       dockerfile: Dockerfile.backend
     ports:
-      - "4000:4000"
+      - "5000:5000"
     depends_on:
       - mongodb
       - redis
     volumes:
       - ./packages/backend:/secure-arc/packages/backend
+    networks:
+      - mynetwork
 
-  # frontend:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.frontend
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ./packages/frontend:/secure-arc/packages/frontend
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./packages/frontend:/secure-arc/packages/frontend
+    networks:
+      - mynetwork
+
 
 volumes:
   mongodb_data:
