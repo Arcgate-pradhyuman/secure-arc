@@ -10,7 +10,6 @@ Hello and welcome to the Secure-Arc tech blueprint! This README is your guide to
 - **Architecture**: 🏛 We follow the [Monorepo](https://en.wikipedia.org/wiki/Monorepo) architecture, keeping our codebase unified.
 - **File Storage**: ☁️ For cloud storage needs, we trust [Azure Store](https://azure.microsoft.com/en-us/services/storage/).
 - **Primary Database**: 🍃 Our choice of database is [MongoDB](https://www.mongodb.com/), and we dock it using [Docker](https://www.docker.com/).
-- **API Layer**: 📡 We use [GraphQL](https://graphql.org/) for a flexible and efficient API solution.
 - **Authentication**: 🛡 To verify and validate, we use [JWT](https://jwt.io/).
 
 ## 📖 **Guidelines**
