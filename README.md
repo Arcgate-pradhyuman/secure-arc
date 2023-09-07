@@ -41,7 +41,6 @@ To create a dump of the 'secure' database, use the following command:
 ```bash
 sudo docker exec -it mongodb_container mongodump -d secure -o /dump
 sudo docker cp mongodb_container:/dump/secure ./dump
-echo "Dump of 'secure' completed!"
 ```
 
 #### Restoring the Database
