@@ -32,14 +32,32 @@ Hello and welcome to the Secure-Arc tech blueprint! This README is your guide to
 
 ---
 
-### 📜 Database Dump Command
+### 📜 Database Operations
 
-If you ever need to create a dump of the 'secure' database, use the following command:
+#### Dumping the Database
+
+To create a dump of the 'secure' database, use the following command:
 
 ```bash
 sudo docker exec -it mongodb_container mongodump -d secure -o /dump
 sudo docker cp mongodb_container:/dump/secure ./dump
 echo "Dump of 'secure' completed!"
+```
+
+#### Restoring the Database
+
+To restore the MongoDB data from the dump directory, use this command:
+
+```bash
+sudo docker exec -it mongodb_container mongorestore /dump
+```
+
+#### Stopping the Database Container
+
+To stop the MongoDB container when needed, use the command:
+
+```bash
+sudo docker stop mongodb_container
 ```
 
 ---
