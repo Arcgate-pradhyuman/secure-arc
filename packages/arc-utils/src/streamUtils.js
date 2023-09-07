@@ -24,7 +24,7 @@ function streamToBuffer(readable) {
 function bufferToStream(buffer) {
   const readable = new stream.Readable();
   readable.push(buffer);
-  readable.push(null);  // Signal end of data.
+  readable.push(null); // Signal end of data.
   return readable;
 }
 
@@ -36,9 +36,7 @@ function bufferToStream(buffer) {
  */
 function pipePromise(source, dest) {
   return new Promise((resolve, reject) => {
-    source.pipe(dest)
-      .on('finish', resolve)
-      .on('error', reject);
+    source.pipe(dest).on('finish', resolve).on('error', reject);
   });
 }
 

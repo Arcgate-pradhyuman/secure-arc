@@ -1,6 +1,6 @@
 // pages/_app.js
 import RootLayout from '@/layout/RootLayout';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
         </ChakraProvider>
       </RootLayout>
     </>
-  )
+  );
 }
 
 export default MyApp;

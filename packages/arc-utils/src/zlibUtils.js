@@ -11,7 +11,7 @@ const pipeline = util.promisify(stream.pipeline);
  * @returns {Promise<Buffer>}
  */
 async function gzip(buffer) {
-    return util.promisify(zlib.gzip)(buffer);
+  return util.promisify(zlib.gzip)(buffer);
 }
 
 /**
@@ -20,7 +20,7 @@ async function gzip(buffer) {
  * @returns {Promise<Buffer>}
  */
 async function gunzip(buffer) {
-    return util.promisify(zlib.gunzip)(buffer);
+  return util.promisify(zlib.gunzip)(buffer);
 }
 
 /**
@@ -30,8 +30,8 @@ async function gunzip(buffer) {
  * @returns {Promise<void>}
  */
 async function gzipStream(source, dest) {
-    const gzipTransform = zlib.createGzip();
-    await pipeline(source, gzipTransform, dest);
+  const gzipTransform = zlib.createGzip();
+  await pipeline(source, gzipTransform, dest);
 }
 
 /**
@@ -41,13 +41,13 @@ async function gzipStream(source, dest) {
  * @returns {Promise<void>}
  */
 async function gunzipStream(source, dest) {
-    const gunzipTransform = zlib.createGunzip();
-    await pipeline(source, gunzipTransform, dest);
+  const gunzipTransform = zlib.createGunzip();
+  await pipeline(source, gunzipTransform, dest);
 }
 
 module.exports = {
-    gzip,
-    gunzip,
-    gzipStream,
-    gunzipStream
+  gzip,
+  gunzip,
+  gzipStream,
+  gunzipStream,
 };

@@ -1,15 +1,26 @@
-import { Flex, Heading, Box, Text, Button, Spacer, HStack, Icon } from "@chakra-ui/react"
-import { MoonIcon } from '@chakra-ui/icons'
+import {
+  Flex,
+  Heading,
+  Box,
+  Text,
+  Button,
+  Spacer,
+  HStack,
+  Icon,
+} from '@chakra-ui/react';
+import { MoonIcon } from '@chakra-ui/icons';
 
 export default function Navbar() {
   return (
-    <Flex as="nav" p="10px" alignItems="center" bg={"#f96332"}>
+    <Flex as="nav" p="10px" alignItems="center" bg={'#f96332'}>
       <Heading as="h1">Welcome , Arcgate Secure</Heading>
       <Spacer />
 
       <HStack spacing="20px">
         <Icon as={MoonIcon} />
-        <Box bg="gray.200" p="10px">P</Box>
+        <Box bg="gray.200" p="10px">
+          P
+        </Box>
         <Text>pradhyuman@arcgate.com</Text>
         <Button colorScheme="purple">Logout</Button>
       </HStack>
@@ -21,5 +32,5 @@ export default function Navbar() {
     //   <Box w="150px" flexGrow="1" h="50px" bg="green">3</Box>
     //   <Box w="150px" flexGrow="2" h="50px" bg="yellow">4</Box>
     // </Flex>
-  )
+  );
 }

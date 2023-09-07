@@ -7,12 +7,12 @@ const fs = require('fs').promises;
  * @returns {Promise<boolean>}
  */
 async function exists(path) {
-    try {
-        await fs.access(path);
-        return true;
-    } catch (error) {
-        return false;
-    }
+  try {
+    await fs.access(path);
+    return true;
+  } catch (error) {
+    return false;
+  }
 }
 
 /**
@@ -21,9 +21,9 @@ async function exists(path) {
  * @returns {Promise<void>}
  */
 async function ensureDir(path) {
-    if (!(await exists(path))) {
-        await fs.mkdir(path, { recursive: true });
-    }
+  if (!(await exists(path))) {
+    await fs.mkdir(path, { recursive: true });
+  }
 }
 
 /**
@@ -33,7 +33,7 @@ async function ensureDir(path) {
  * @returns {Promise<string>}
  */
 async function readFile(path, encoding = 'utf-8') {
-    return fs.readFile(path, encoding);
+  return fs.readFile(path, encoding);
 }
 
 /**
@@ -44,7 +44,7 @@ async function readFile(path, encoding = 'utf-8') {
  * @returns {Promise<void>}
  */
 async function writeFile(path, data, encoding = 'utf-8') {
-    await fs.writeFile(path, data, encoding);
+  await fs.writeFile(path, data, encoding);
 }
 
 /**
@@ -55,13 +55,13 @@ async function writeFile(path, data, encoding = 'utf-8') {
  * @returns {Promise<void>}
  */
 async function appendToFile(path, data, encoding = 'utf-8') {
-    await fs.appendFile(path, data, encoding);
+  await fs.appendFile(path, data, encoding);
 }
 
 module.exports = {
-    exists,
-    ensureDir,
-    readFile,
-    writeFile,
-    appendToFile,
+  exists,
+  ensureDir,
+  readFile,
+  writeFile,
+  appendToFile,
 };

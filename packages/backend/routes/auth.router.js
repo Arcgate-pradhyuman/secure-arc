@@ -1,11 +1,10 @@
-const router = require("express").Router();
-const { login, token } = require("../controllers/auth.controller");
+const router = require('express').Router();
+const { login, token } = require('../controllers/auth.controller');
 
 // login
-router.post("/login", login);
+router.post('/login', login);
 // token
-router.post("/token", token);
-
+router.post('/token', token);
 
 module.exports = router;
 // const {

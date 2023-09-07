@@ -1,50 +1,55 @@
-version: '6.0' # Using version 6.0
+version: '6.0'
 
 services:
-  # mongodb:
-  #   image: mongo:latest # Use the official MongoDB image from Docker Hub
-  #   container_name: mongodb_container
-  #   ports:
-  #     - "27017:27017"
-  #   # environment:
-  #   #   MONGO_INITDB_ROOT_USERNAME: root
-  #   #   MONGO_INITDB_ROOT_PASSWORD: yourpassword  # Please choose a secure password
-  #   volumes:
-  #     - mongodb_data:/data/db
-  #     - ./dump:/dump
-  #   networks:
-  #     - mynetwork
-
-  # redis:
-  #   image: redis:latest # Use the official Redis image from Docker Hub
-  #   container_name: redis_container
-  #   ports:
-  #     - "6379:6379"
-  #   volumes:
-  #     - redis_data:/data
-  #   networks:
-  #     - mynetwork
-
-  # frontend:
-  #   build:
-  #     context: ./packages/frontend
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3000:3000"
-  #   networks:
-  #     - mynetwork
-
-  backend:
-    build:
-      context: ./packages/backend
-      dockerfile: Dockerfile
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_container
     ports:
-      - "4000:4000"
-    environment:
-      MONGO_URI: mongodb://mongodb_container:27017/yourdbname
-      REDIS_URI: redis://redis_container:6379
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./dump:/dump
     networks:
       - mynetwork
+
+  redis:
+    image: redis:latest
+    container_name: redis_container
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - mynetwork
+
+  backend:
+    env_file: 
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./packages/backend:/secure-arc/packages/backend
+    networks:
+      - mynetwork
+
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./packages/frontend:/secure-arc/packages/frontend
+    networks:
+      - mynetwork
+
 
 volumes:
   mongodb_data:
