@@ -1,0 +1,36 @@
+# Node.js dependency directory
+node_modules/
+
+# Next.js build output
+.next/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Version control directories
+.git/
+.svn/
+.hg/
+
+# Development-specific files
+.npmrc
+.yarnrc
+.env.local
+.env.development
+.editorconfig
+.eslintcache
+
+# IDE-generated files
+.idea/
+.vscode/
+
+# Docker files (usually unnecessary in build context)
+Dockerfile
+docker-compose.yml
+
+# OS generated files
+*~
