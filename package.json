@@ -10,7 +10,8 @@
     "packages/*"
   ],
   "nohoist": [
-    "packages/*"
+    "arc-encrypt",
+    "arc-encrypt/**"
   ],
   "scripts": {
     "clean": "./scripts/clean.sh",
