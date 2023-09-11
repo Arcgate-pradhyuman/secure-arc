@@ -16,6 +16,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users.router');
 const authRouter = require('./routes/auth.router');
 const fileRouter = require('./routes/file.router');
+const camRouter = require('./routes/cam.router');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/file', fileRouter);
+app.use('/cam',camRouter);
 
 // apollo server connection
 var apolloServer; // Declare the variable in the outer scope
