@@ -39,7 +39,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/file', fileRouter);
-app.use('/cam',camRouter);
+app.use('/cam', camRouter);
 
 // apollo server connection
 var apolloServer; // Declare the variable in the outer scope
