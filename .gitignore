@@ -11,3 +11,4 @@ config/development.json
 packages/backend/yarn-error.log
 .env
 yarn-error.log
+.env.bash
