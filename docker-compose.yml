@@ -34,7 +34,7 @@ services:
       - mongodb
       - redis
     volumes:
-      - ./packages/backend:/secure-arc/packages/backend
+      - ./micro-backend/express-server:/secure-arc/micro-backend/express-server
     networks:
       - mynetwork
 
