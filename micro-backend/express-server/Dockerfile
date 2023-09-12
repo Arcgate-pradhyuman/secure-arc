@@ -14,4 +14,4 @@ RUN yarn install --frozen-lockfile
 EXPOSE 5000
 
 # Start the backend service
-CMD ["yarn", "workspace", "backend", "start"]
+CMD ["yarn", "workspace", "express-server", "start"]
