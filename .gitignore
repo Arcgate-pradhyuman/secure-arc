@@ -1,6 +1,7 @@
 node_modules
 .env.development
 yarn.lock
+package-lock.json
 packages/frontend/package-lock.json
 packages/frontend/.next/
 packages/backend/node_modules

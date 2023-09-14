@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "secure-arc-backend",
-      cwd: "./packages/backend",
+      cwd: "./micro-backend/express-server",
       script: "yarn",
       args: "start",
       watch: true,

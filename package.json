@@ -1,16 +1,19 @@
 {
   "name": "secure-arc",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "secure-arc is tool for maintaining arcgate internal docs",
   "license": "ISC",
   "author": "arcgate team",
   "main": "index.js",
   "workspaces": [
+    "micro-frontend/*",
+    "micro-backend/*",
     "packages/*"
   ],
   "nohoist": [
-    "packages/*"
+    "arc-encrypt",
+    "arc-encrypt/**"
   ],
   "scripts": {
     "clean": "./scripts/clean.sh",

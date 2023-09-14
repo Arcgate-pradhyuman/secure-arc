@@ -1,6 +1,0 @@
-FROM node:16 as backend-builder
-WORKDIR /secure-arc
-# Copy entire monorepo
-COPY . .  
-RUN yarn install --frozen-lockfile --production
-CMD [ "yarn", "--cwd", "packages/backend", "start" ]
