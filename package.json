@@ -11,10 +11,7 @@
     "micro-backend/*",
     "packages/*"
   ],
-  "nohoist": [
-    "arc-encrypt",
-    "arc-encrypt/**"
-  ],
+  "nohoist": ["**/packages/**"],
   "scripts": {
     "clean": "./scripts/clean.sh",
     "lint": "eslint 'packages/**/*.{js,jsx}'",
