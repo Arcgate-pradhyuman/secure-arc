@@ -1,0 +1,38 @@
+{
+	"name": "arc-thirdparty",
+	"versions": {
+		"0.0.0": {
+			"name": "arc-thirdparty",
+			"version": "0.0.0",
+			"main": "index.js",
+			"license": "MIT",
+			"_id": "arc-thirdparty@0.0.0",
+			"dist": {
+				"shasum": "86be0f950cada005541710b2c36542686ea78a28",
+				"integrity": "sha512-Gwc1MuhRp9gOp+wLaHyyK6mVUwzKcobWSEzsi1gZQ+80KWLOT/xtiEj6RyVCk/s9v8dJAifqPrsquaobVKrstg==",
+				"tarball": "http://localhost:4873/arc-thirdparty/-/arc-thirdparty-0.0.0.tgz"
+			},
+			"contributors": []
+		}
+	},
+	"time": {
+		"modified": "2023-09-18T07:18:32.426Z",
+		"created": "2023-09-18T07:18:32.426Z",
+		"0.0.0": "2023-09-18T07:18:32.426Z"
+	},
+	"users": {},
+	"dist-tags": {
+		"latest": "0.0.0"
+	},
+	"_uplinks": {},
+	"_distfiles": {},
+	"_attachments": {
+		"arc-thirdparty-0.0.0.tgz": {
+			"shasum": "86be0f950cada005541710b2c36542686ea78a28",
+			"version": "0.0.0"
+		}
+	},
+	"_rev": "3-c26786054ca7bfca",
+	"_id": "arc-thirdparty",
+	"readme": ""
+}
