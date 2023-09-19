@@ -1,17 +1,23 @@
-# Use the Node 16 base image
+# Use an official Node.js runtime as the base image
 FROM node:16
 
-# Set the working directory to the root of your monorepo
-WORKDIR /secure-arc
+# Set the working directory in the container
+WORKDIR /express-server
 
-# Copy the rest of your monorepo into the image
+# Copy package.json to the container
+COPY package.json ./
+
+# Set a custom Yarn registry
+RUN yarn config set registry http://verdaccio:4873/
+
+# Install Node.js dependencies using Yarn
+RUN yarn install
+
+# Copy the rest of your application code to the container
 COPY . .
 
-# Install dependencies for the entire monorepo (or adjust as needed)
-RUN yarn install --frozen-lockfile
-
-# Expose port 5000 (assuming your service runs on this port)
+# Expose the port your Express.js server listens on (e.g., 5000)
 EXPOSE 5000
 
-# Start the backend service
-CMD ["yarn", "workspace", "express-server", "start"]
+# Start your Express.js application using the yarn start command
+CMD ["yarn", "start"]

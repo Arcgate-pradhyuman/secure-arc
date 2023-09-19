@@ -6,12 +6,6 @@
   "license": "ISC",
   "author": "arcgate team",
   "main": "index.js",
-  "workspaces": [
-    "micro-frontend/*",
-    "micro-backend/*",
-    "packages/*"
-  ],
-  "nohoist": ["**/packages/**"],
   "scripts": {
     "clean": "./scripts/clean.sh",
     "lint": "eslint 'packages/**/*.{js,jsx}'",

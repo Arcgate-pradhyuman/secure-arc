@@ -22,21 +22,22 @@ services:
     networks:
       - mynetwork
 
-  # backend:
-  #   env_file: 
-  #     - .env
-  #   build:
-  #     context: .
-  #     dockerfile: micro-backend/express-server/Dockerfile
-  #   ports:
-  #     - "5000:5000"
-  #   depends_on:
-  #     - mongodb
-  #     - redis
-  #   volumes:
-  #     - ./micro-backend/express-server:/secure-arc/micro-backend/express-server
-  #   networks:
-  #     - mynetwork
+  backend:
+    env_file: 
+      - .env
+    build:
+      context: .
+      dockerfile: micro-backend/express-server/Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - verdaccio
+      - mongodb
+      - redis
+    volumes:
+      - ./micro-backend/express-server:/secure-arc/micro-backend/express-server
+    networks:
+      - mynetwork
 
   # frontend:
   #   build:
